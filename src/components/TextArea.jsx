@@ -6,13 +6,15 @@ export default function TextArea() {
     const [warningText, setWarningText] = useState("")
     const handleChange = (e) => {
         let newText = e.target.value;
+        
+        // Basic Validation 
         if (newText.includes('<script>')) {
             setWarningText("No script tag allowed")
             newText = newText.replace("<script>", "")
         } else if (newText.includes("@")) {
             setWarningText("No @ symbol allowed")
             newText = newText.replace("@", "")
-        }else {
+        } else {
             setWarningText("")
         }
         setText(newText)
