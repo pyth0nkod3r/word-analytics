@@ -1,16 +1,22 @@
-function Stats() {
+function Stats({charCount}) {
     return (
-    <section className="stats">
-        <div className="">Characters 
-        </div>
-        <div className="">Words
-        </div>
-        <div className="">Twitter
-        </div>
-        <div className="">Facebook
-        </div>
-    </section> 
+        <section className="stats">
+           <Stat number={charCount} label={"Character"}/>
+           <Stat number={0} label={"Words"}/>
+           <Stat number={280} label={"Twitter"}/>
+           <Stat number={2200} label={"Facebook"}/>
+        </section>
     )
 }
-
 export default Stats;
+
+function Stat({number, label}){
+    return (
+        <section className="stat">
+            <span className="stat__number">{number}
+            </span>
+            <h2 className="second-heading">{label}
+            </h2>
+        </section>
+        )
+}
